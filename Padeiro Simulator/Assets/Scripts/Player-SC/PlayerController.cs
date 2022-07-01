@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody2D meuRB;
+    
     private Animator meuAnim;
 
-    [SerializeField] private float speed = 5;
+    [SerializeField] private float speed;
 
     // Start is called before the first frame update
     void Start()
     {
-        meuRB = GetComponent<Rigidbody2D>();
+        
         meuAnim = GetComponent<Animator>();
     }
 
@@ -26,8 +26,12 @@ public class PlayerController : MonoBehaviour
     {
         //Fazendo a movimentação
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f);
-        movement.Normalize();
-        
+
+        //Mudando a animação
+        meuAnim.SetFloat("Horizontal", movement.x);
+        meuAnim.SetFloat("Vertical", movement.y);
+        meuAnim.SetFloat("Speed", movement.magnitude);
+
         //Aplicando a movimentação ao transforme
         transform.position += movement * speed * Time.deltaTime;
     }
