@@ -133,11 +133,11 @@ PrefabInstance:
     - target: {fileID: 33704208, guid: 53a6ce0b657a98e4188db699bac4167a, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 6200000, guid: ed09dccaf602a0940b1f9a26ca151d1f, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 33704209, guid: 53a6ce0b657a98e4188db699bac4167a, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 6200000, guid: ed09dccaf602a0940b1f9a26ca151d1f, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 6910009827401910076, guid: 53a6ce0b657a98e4188db699bac4167a, type: 3}
       propertyPath: m_Name
       value: TileMap
