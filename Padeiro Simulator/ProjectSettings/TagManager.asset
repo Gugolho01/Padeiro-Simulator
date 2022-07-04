@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - BackGround
+  - Level
+  - Entidades
+  - decoracao
   layers:
   - Default
   - TransparentFX
@@ -11,10 +15,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - BackGround
+  - Level
+  - decoracao
+  - Entidades
   - 
   - 
   - 
@@ -40,4 +44,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BackGround
+    uniqueID: 4037019817
+    locked: 0
+  - name: Level
+    uniqueID: 991742689
+    locked: 0
+  - name: decoracao
+    uniqueID: 723934661
+    locked: 0
+  - name: Entidades
+    uniqueID: 4234400519
     locked: 0
