@@ -9,6 +9,7 @@ TagManager:
   - Entidades
   - decoracao
   - Comida
+  - Bancada
   layers:
   - Default
   - TransparentFX
