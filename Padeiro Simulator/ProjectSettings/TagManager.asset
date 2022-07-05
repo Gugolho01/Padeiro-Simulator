@@ -8,6 +8,7 @@ TagManager:
   - Level
   - Entidades
   - decoracao
+  - Comida
   layers:
   - Default
   - TransparentFX
@@ -56,4 +57,7 @@ TagManager:
     locked: 0
   - name: Entidades
     uniqueID: 4234400519
+    locked: 0
+  - name: ObjetoCarregavel
+    uniqueID: 462136347
     locked: 0

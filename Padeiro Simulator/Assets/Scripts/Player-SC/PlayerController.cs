@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float speed;
 
-    [SerializeField] private bool tenhoObj = false;
     [SerializeField] private Transform naMaoObj;
     [SerializeField] private bool segurando;
 
@@ -24,10 +23,15 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Movendo();
+        CarregaItem();
+    }
+
+    private void CarregaItem()
+    {
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if(tenhoObj && naMaoObj != null)
+            if(!segurando && naMaoObj != null)
             {
                 segurando = true;
             }
@@ -36,7 +40,7 @@ public class PlayerController : MonoBehaviour
                 segurando = false;
             }
         }
-        
+
         if (segurando)
         {
             naMaoObj.position = transform.position;
@@ -59,10 +63,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
         if (collision.gameObject.CompareTag("Comida"))
         {
-            tenhoObj = true;
             naMaoObj = collision.gameObject.GetComponent<Transform>();
         }
     }
@@ -70,7 +72,6 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Comida"))
         {
-            tenhoObj = false;
             naMaoObj = null;
         }
     }
