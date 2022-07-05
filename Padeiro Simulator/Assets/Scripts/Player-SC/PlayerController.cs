@@ -9,6 +9,10 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float speed;
 
+    [SerializeField] private bool tenhoObj = false;
+    [SerializeField] private Transform naMaoObj;
+    [SerializeField] private bool segurando;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +24,23 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Movendo();
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if(tenhoObj && naMaoObj != null)
+            {
+                segurando = true;
+            }
+            else
+            {
+                segurando = false;
+            }
+        }
+        
+        if (segurando)
+        {
+            naMaoObj.position = transform.position;
+        }
     }
 
     private void Movendo()
@@ -34,5 +55,23 @@ public class PlayerController : MonoBehaviour
 
         //Aplicando a movimentação ao transforme
         transform.position += movement * speed * Time.deltaTime;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        if (collision.gameObject.CompareTag("Comida"))
+        {
+            tenhoObj = true;
+            naMaoObj = collision.gameObject.GetComponent<Transform>();
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Comida"))
+        {
+            tenhoObj = false;
+            naMaoObj = null;
+        }
     }
 }
