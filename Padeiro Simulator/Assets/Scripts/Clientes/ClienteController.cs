@@ -25,7 +25,7 @@ public class ClienteController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(ondeVai);
+        
         if (bancaGO && ondeVai != null)
         {
             transform.position = ondeVai.position;

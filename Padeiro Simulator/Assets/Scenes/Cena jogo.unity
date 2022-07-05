@@ -325,7 +325,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -670,7 +670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f38e93bf268b78d47a32636008f9cc36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bancada: {fileID: 0}
+  ondeVai: {fileID: 0}
   bancaGO: 0
   clientes:
   - {fileID: -1302702072, guid: eebb5a97340c1474fab2c4047f92f68f, type: 3}
