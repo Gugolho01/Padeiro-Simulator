@@ -15415,6 +15415,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bancada
       objectReference: {fileID: 0}
+    - target: {fileID: 1205220110695193632, guid: 49edb7cb6e2e27740a7b26fb72493f7a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1205220110695193643, guid: 49edb7cb6e2e27740a7b26fb72493f7a, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -15600,7 +15604,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3980587823835991921, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.52
+      value: -0.43
       objectReference: {fileID: 0}
     - target: {fileID: 3980587823835991921, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
       propertyPath: m_LocalPosition.z
