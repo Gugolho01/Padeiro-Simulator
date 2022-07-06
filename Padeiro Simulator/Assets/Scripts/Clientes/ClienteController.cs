@@ -5,9 +5,10 @@ using UnityEngine;
 public class ClienteController : MonoBehaviour
 {
     //Variaveis para encontrar a bancada
-    [SerializeField] private GameObject qualBancada;
-    [SerializeField] private Transform ondeVai;
-    [SerializeField] private bool bancaGO;
+    [SerializeField] private bool fizPedido;
+    private GameObject qualBancada;
+    private Transform ondeVai;
+    private bool bancaGO;
 
     //Pegando a sprite do cliente
     private SpriteRenderer spriteR;
@@ -16,12 +17,12 @@ public class ClienteController : MonoBehaviour
     [SerializeField] private int quem;
 
     //Caracteristicas do cliente
-    [SerializeField] private float vel = 5f;
+    private float vel = 5f;
 
     // Start is called before the first frame update
     void Start()
     {
-        //Pegando a sprite
+        //Pegando a sprite do Cliente
         spriteR = gameObject.GetComponent<SpriteRenderer>();
         spriteR.sprite = clientes[quem];
     }
@@ -30,12 +31,16 @@ public class ClienteController : MonoBehaviour
     void Update()
     {
         //Localizei a bancada e aqui faz ele ir até ela
-        if (bancaGO && ondeVai != null)
+        if (bancaGO && ondeVai != null && !fizPedido)
         {
             //Fazendo ele se mover para a bancada
             transform.position = new Vector3(Mathf.Lerp(transform.position.x, ondeVai.position.x, vel * Time.deltaTime / 5),
                                             Mathf.Lerp(transform.position.y, ondeVai.position.y, vel * Time.deltaTime / 5), 0);
-            
+            if(transform.position == ondeVai.position)
+            {
+                fizPedido = true;
+            }
+
             bancaGO = true;
         }
     }
@@ -74,4 +79,6 @@ public class ClienteController : MonoBehaviour
             
         }
     }
+
+    
 }
