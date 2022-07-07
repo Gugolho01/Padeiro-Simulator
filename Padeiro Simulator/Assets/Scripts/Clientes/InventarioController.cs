@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class InventarioController : MonoBehaviour
 {
-    private GameObject item;
+    [SerializeField] private GameObject item;
 
     private bool tenhoItem;
-    private bool queroItem = true;
 
-    private Transform itemObj;
+    //Pegando o transforme do item que eu tenho
+    private int queItem;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,18 +20,33 @@ public class InventarioController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!tenhoItem && queroItem) 
+        if (!tenhoItem)
         {
+            //Pegando o preFab com a variavel item
             item = Resources.Load<GameObject>("Comida");
 
-            itemObj = Instantiate(item, transform.position, Quaternion.identity).GetComponent<Transform>();
+            //transformando a variavel item em uma istance
+            item = Instantiate(item, transform.position, Quaternion.identity);
+
+            //Pegando o numero da comida que to pegando
+            queItem = item.GetComponent<ComidaController>().queComida();
 
             tenhoItem = true;
-            queroItem = false;
         }
 
         if (tenhoItem){
-            itemObj.position = transform.position;
+            item.transform.position = transform.position;
         }
+    }
+
+    //Informando ao cliente qual item ele tem no inventario
+    public int QueItem()
+    {
+        return queItem;
+    }
+
+    public void MostrarPedido(bool m)
+    {
+        item.SetActive(m);
     }
 }

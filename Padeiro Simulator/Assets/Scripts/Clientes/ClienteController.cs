@@ -5,7 +5,7 @@ using UnityEngine;
 public class ClienteController : MonoBehaviour
 {
     //Variaveis para encontrar a bancada
-    [SerializeField] private bool fizPedido;
+    [SerializeField] protected bool fizPedido;
     private GameObject qualBancada;
     private Transform ondeVai;
     private bool bancaGO;
@@ -18,6 +18,10 @@ public class ClienteController : MonoBehaviour
 
     //Caracteristicas do cliente
     private float vel = 5f;
+
+    //Inventory
+    [SerializeField] private GameObject meuInventory;
+    [SerializeField] private int itemTenho;
 
     // Start is called before the first frame update
     void Start()
@@ -40,9 +44,10 @@ public class ClienteController : MonoBehaviour
             {
                 fizPedido = true;
             }
-
             bancaGO = true;
         }
+        meuInventory.SetActive(fizPedido);
+        meuInventory.GetComponent<InventarioController>().MostrarPedido(fizPedido);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -80,5 +85,4 @@ public class ClienteController : MonoBehaviour
         }
     }
 
-    
 }
