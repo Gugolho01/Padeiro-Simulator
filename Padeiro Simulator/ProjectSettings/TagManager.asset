@@ -10,6 +10,7 @@ TagManager:
   - decoracao
   - Comida
   - Bancada
+  - InventarioCliente
   layers:
   - Default
   - TransparentFX

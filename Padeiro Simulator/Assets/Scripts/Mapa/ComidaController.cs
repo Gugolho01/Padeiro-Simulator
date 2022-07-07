@@ -13,7 +13,8 @@ public class ComidaController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        qualComida = Random.Range(0, 6);
+        tenhoComida = true;
     }
 
     // Update is called once per frame

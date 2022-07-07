@@ -6,7 +6,7 @@ public class InventarioController : MonoBehaviour
 {
     [SerializeField] private GameObject item;
 
-    private bool tenhoItem;
+    [SerializeField] private bool tenhoItem = true;
 
     //Pegando o transforme do item que eu tenho
     private int queItem;
@@ -20,6 +20,14 @@ public class InventarioController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (tenhoItem)
+        {
+            item.transform.position = transform.position;
+        }
+    }
+
+    public void CriandoItem()
+    {
         if (!tenhoItem)
         {
             //Pegando o preFab com a variavel item
@@ -32,10 +40,6 @@ public class InventarioController : MonoBehaviour
             queItem = item.GetComponent<ComidaController>().queComida();
 
             tenhoItem = true;
-        }
-
-        if (tenhoItem){
-            item.transform.position = transform.position;
         }
     }
 

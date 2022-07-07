@@ -6,7 +6,7 @@ public class ClienteController : MonoBehaviour
 {
     //Variaveis para encontrar a bancada
     [SerializeField] protected bool fizPedido;
-    private GameObject qualBancada;
+    [SerializeField] private GameObject qualBancada;
     private Transform ondeVai;
     private bool bancaGO;
 
@@ -21,7 +21,8 @@ public class ClienteController : MonoBehaviour
 
     //Inventory
     [SerializeField] private GameObject meuInventory;
-    [SerializeField] private int itemTenho;
+    private int itemTenho;
+    [SerializeField] private int quantosPedidos;
 
     // Start is called before the first frame update
     void Start()
@@ -40,12 +41,21 @@ public class ClienteController : MonoBehaviour
             //Fazendo ele se mover para a bancada
             transform.position = new Vector3(Mathf.Lerp(transform.position.x, ondeVai.position.x, vel * Time.deltaTime / 5),
                                             Mathf.Lerp(transform.position.y, ondeVai.position.y, vel * Time.deltaTime / 5), 0);
-            if(transform.position == ondeVai.position)
+            var dis = 3f;
+            if(transform.position.x > ondeVai.position.x - dis && transform.position.x < ondeVai.position.x + dis &&
+               transform.position.y > ondeVai.position.x - dis && transform.position.y < ondeVai.position.y + dis)
             {
                 fizPedido = true;
+
+                //Fazendo meu Inventário criar o itm quando chegar no local
+                meuInventory.GetComponent<InventarioController>().CriandoItem();
+
+                //Vendo qual o numero da sprite do item que tenho
+                itemTenho = meuInventory.GetComponent<InventarioController>().QueItem();
             }
             bancaGO = true;
         }
+        
         meuInventory.SetActive(fizPedido);
         meuInventory.GetComponent<InventarioController>().MostrarPedido(fizPedido);
     }
