@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class InventarioController : MonoBehaviour
 {
-    [SerializeField] private GameObject item;
+    private GameObject item;
 
-    [SerializeField] private bool tenhoItem;
-    [SerializeField] private bool queroItem = true;
+    private bool tenhoItem;
+    private bool queroItem = true;
+
+    private Transform itemObj;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,13 +23,14 @@ public class InventarioController : MonoBehaviour
         {
             item = Resources.Load<GameObject>("Comida");
 
-            Instantiate(item, transform.position, Quaternion.identity);
+            itemObj = Instantiate(item, transform.position, Quaternion.identity).GetComponent<Transform>();
 
             tenhoItem = true;
             queroItem = false;
         }
 
-        item.transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
+        if (tenhoItem){
+            itemObj.position = transform.position;
+        }
     }
-
 }

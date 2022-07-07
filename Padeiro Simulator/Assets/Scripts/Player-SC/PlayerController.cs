@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
     private Animator meuAnim;
 
     [SerializeField] private float speed;
-
     [SerializeField] private Transform naMaoObj;
     [SerializeField] private bool segurando;
 

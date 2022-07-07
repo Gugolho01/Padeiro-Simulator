@@ -31,4 +31,9 @@ public class ComidaController : MonoBehaviour
         qualComida = n1;
         tenhoComida = true;
     }
+
+    public void OndeTo(Transform tra)
+    {
+        transform.position = tra.position;
+    }
 }

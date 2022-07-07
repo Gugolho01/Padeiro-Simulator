@@ -127,7 +127,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.0625, y: 1.0625}
+  m_Size: {x: 0.34, y: 0.34}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -145,8 +145,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d7a7af5b4a6d24e9508234f1892ade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tenhoCoisa: 0
   item: {fileID: 0}
+  tenhoItem: 0
+  queroItem: 1
 --- !u!1 &3980587823835991926
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,15 +197,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f38e93bf268b78d47a32636008f9cc36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventario: {fileID: 0}
-  pedidos:
-  - {fileID: 1659189803, guid: d4af46e14e8c60d4fa5f4c276a0969ab, type: 3}
-  - {fileID: -220538243, guid: d4af46e14e8c60d4fa5f4c276a0969ab, type: 3}
-  - {fileID: 814230169, guid: d4af46e14e8c60d4fa5f4c276a0969ab, type: 3}
-  - {fileID: -247348440, guid: d4af46e14e8c60d4fa5f4c276a0969ab, type: 3}
-  - {fileID: -458185053, guid: d4af46e14e8c60d4fa5f4c276a0969ab, type: 3}
-  - {fileID: 1693214452, guid: d4af46e14e8c60d4fa5f4c276a0969ab, type: 3}
-  qualPedido: 1
   fizPedido: 0
   clientes:
   - {fileID: -1302702072, guid: eebb5a97340c1474fab2c4047f92f68f, type: 3}
