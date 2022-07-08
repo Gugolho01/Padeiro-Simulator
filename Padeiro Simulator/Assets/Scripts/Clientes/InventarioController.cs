@@ -11,6 +11,9 @@ public class InventarioController : MonoBehaviour
     //Pegando o transforme do item que eu tenho
     private int queItem;
 
+    //Quantos Itens criar
+    [SerializeField] private List<int> qtdItens;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +41,7 @@ public class InventarioController : MonoBehaviour
 
             //Pegando o numero da comida que to pegando
             queItem = item.GetComponent<ComidaController>().queComida();
-
+            Debug.Log(queItem + " item, no Inventory");
             tenhoItem = true;
         }
     }

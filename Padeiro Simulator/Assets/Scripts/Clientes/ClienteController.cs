@@ -5,7 +5,7 @@ using UnityEngine;
 public class ClienteController : MonoBehaviour
 {
     //Variaveis para encontrar a bancada
-    [SerializeField] protected bool fizPedido;
+    [SerializeField] private bool fizPedido;
     [SerializeField] private GameObject qualBancada;
     private Transform ondeVai;
     private bool bancaGO;
@@ -20,11 +20,12 @@ public class ClienteController : MonoBehaviour
     private float vel = 5f;
 
     //Inventory
-    [SerializeField] private GameObject meuInventory;
-    private int itemTenho;
-    [SerializeField] private int quantosPedidos;
+    [SerializeField] private Transform meuInventoryPos;
+    [SerializeField] private List<GameObject> meuInventory;
+    [SerializeField] private List<int> itemTenho;
+    [SerializeField] private int quantosPedidos = 4;
+    [SerializeField] private bool fizTodosPedidos;
 
-    // Start is called before the first frame update
     void Start()
     {
         //Pegando a sprite do Cliente
@@ -32,32 +33,61 @@ public class ClienteController : MonoBehaviour
         spriteR.sprite = clientes[quem];
     }
 
-    // Update is called once per frame
     void Update()
     {
+        Debug.Log(itemTenho);
+
+        if (fizPedido)
+        {
+            for (var inve = 0; inve <= quantosPedidos; inve++) 
+            {
+                if (!fizTodosPedidos)
+                {
+                    var i = 0;
+                    if (i <= quantosPedidos)
+                    {
+                        //Pegando o preFab com a variavel item
+                        meuInventory[i] = Resources.Load<GameObject>("Inventory");
+                        meuInventory[i] = Instantiate(meuInventory[i]);
+
+                        //transformando a variavel item em uma istance
+                        meuInventory.Insert(i, meuInventory[i]);
+
+                        i++;
+                    }
+                    if (i >= quantosPedidos) { fizTodosPedidos = true; }
+                }
+                //Fazendo o inventário ficar em cima do cliente
+                meuInventory[inve].transform.position = meuInventoryPos.position;
+            }
+        }
         //Localizei a bancada e aqui faz ele ir até ela
         if (bancaGO && ondeVai != null && !fizPedido)
         {
             //Fazendo ele se mover para a bancada
             transform.position = new Vector3(Mathf.Lerp(transform.position.x, ondeVai.position.x, vel * Time.deltaTime / 5),
-                                            Mathf.Lerp(transform.position.y, ondeVai.position.y, vel * Time.deltaTime / 5), 0);
-            var dis = 3f;
-            if(transform.position.x > ondeVai.position.x - dis && transform.position.x < ondeVai.position.x + dis &&
-               transform.position.y > ondeVai.position.x - dis && transform.position.y < ondeVai.position.y + dis)
+                                             Mathf.Lerp(transform.position.y, ondeVai.position.y, vel * Time.deltaTime / 5), 0);
+            for (var inve = 0; inve <= quantosPedidos; inve++)
             {
-                fizPedido = true;
+                if (Vector3.Distance(transform.position, ondeVai.position) < .1f)
+                {
+                    fizPedido = true;
 
-                //Fazendo meu Inventário criar o itm quando chegar no local
-                meuInventory.GetComponent<InventarioController>().CriandoItem();
+                    //Fazendo meu Inventário criar o itm quando chegar no local
+                    meuInventory[inve].GetComponent<InventarioController>().CriandoItem();
 
-                //Vendo qual o numero da sprite do item que tenho
-                itemTenho = meuInventory.GetComponent<InventarioController>().QueItem();
+                    //Vendo qual o numero da sprite do item que tenho
+                    for (var i = 0; i <= quantosPedidos; i++)
+                    {
+                        //Colocando na lista de itens que tenho no inventario
+                        itemTenho.Insert(i, meuInventory[inve].GetComponent<InventarioController>().QueItem());
+                    }
+                }
+                bancaGO = true;
+                meuInventory[inve].SetActive(fizPedido);
+                meuInventory[inve].GetComponent<InventarioController>().MostrarPedido(fizPedido);
             }
-            bancaGO = true;
         }
-        
-        meuInventory.SetActive(fizPedido);
-        meuInventory.GetComponent<InventarioController>().MostrarPedido(fizPedido);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -94,5 +124,4 @@ public class ClienteController : MonoBehaviour
             
         }
     }
-
 }

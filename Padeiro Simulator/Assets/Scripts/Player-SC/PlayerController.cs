@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         meuAnim = GetComponent<Animator>();
     }
 
@@ -27,7 +26,6 @@ public class PlayerController : MonoBehaviour
 
     private void CarregaItem()
     {
-
         if (Input.GetKeyDown(KeyCode.E))
         {
             if(!segurando && naMaoObj != null)

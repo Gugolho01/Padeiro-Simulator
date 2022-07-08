@@ -15663,11 +15663,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3980587823835991921, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.47
+      value: 3.17
       objectReference: {fileID: 0}
     - target: {fileID: 3980587823835991921, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.7
+      value: -0.42
       objectReference: {fileID: 0}
     - target: {fileID: 3980587823835991921, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -15702,6 +15702,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3980587823835991922, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
+      propertyPath: quem333
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3980587823835991922, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
       propertyPath: fizPedido
       value: 0
       objectReference: {fileID: 0}
@@ -15709,6 +15713,26 @@ PrefabInstance:
       propertyPath: meuInventory
       value: 
       objectReference: {fileID: 270054674}
+    - target: {fileID: 3980587823835991922, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
+      propertyPath: itemTenho.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3980587823835991922, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
+      propertyPath: itemTenho.Array.data[0]
+      value: 132
+      objectReference: {fileID: 0}
+    - target: {fileID: 3980587823835991922, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
+      propertyPath: itemTenho.Array.data[2]
+      value: 1311
+      objectReference: {fileID: 0}
+    - target: {fileID: 3980587823835991922, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
+      propertyPath: itemTenho.Array.data[3]
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 3980587823835991922, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
+      propertyPath: itemTenho.Array.data[4]
+      value: 628
+      objectReference: {fileID: 0}
     - target: {fileID: 3980587823835991926, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
       propertyPath: m_Name
       value: Cliente
