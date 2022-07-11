@@ -22,6 +22,7 @@ public class ClienteController : MonoBehaviour
     //Inventory
     [SerializeField] private Transform meuInventoryPos;
     [SerializeField] private List<GameObject> meuInventory;
+    [SerializeField] private GameObject meuInventoryTemp;
     [SerializeField] private List<int> itemTenho;
     [SerializeField] private int quantosPedidos = 4;
     [SerializeField] private bool fizTodosPedidos;
@@ -35,11 +36,48 @@ public class ClienteController : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(itemTenho);
+        //FandoPedido();
+        Pedido();
+    }
 
+    private void Pedido() 
+    {
+        if (!fizPedido)
+        {
+            //Localizei a bancada e aqui faz ele ir até ela
+            if (bancaGO && ondeVai != null)
+            {
+                //Fazendo ele se mover para a bancada
+                transform.position = new Vector3(Mathf.Lerp(transform.position.x, ondeVai.position.x, vel * Time.deltaTime / 5),
+                                                 Mathf.Lerp(transform.position.y, ondeVai.position.y, vel * Time.deltaTime / 5), 0);
+
+                //Se estou perto do balção já posso fazer o pedidop
+                if (Vector3.Distance(transform.position, ondeVai.position) < .1f)
+                {
+                    //Criando o inventário
+                    var inve = Instantiate(meuInventoryTemp, meuInventoryPos.position, Quaternion.identity);
+                    //aumentando o scale do inventario
+                    inve.transform.localScale = new Vector3(inve.transform.localScale.x + quantosPedidos + 2, inve.transform.localScale.y, 1);
+
+                    while (quantosPedidos >= 0)
+                    { 
+                        inve.GetComponent<InventarioController>().CriandoItem();
+
+                        itemTenho.Add(inve.GetComponent<InventarioController>().QueItem());
+
+                        quantosPedidos--;
+                    }
+                    fizPedido = true;
+                }
+            }
+        }
+    }
+
+    private void FandoPedido()
+    {
         if (fizPedido)
         {
-            for (var inve = 0; inve <= quantosPedidos; inve++) 
+            for (var inve = 0; inve <= quantosPedidos; inve++)
             {
                 if (!fizTodosPedidos)
                 {
@@ -48,7 +86,7 @@ public class ClienteController : MonoBehaviour
                     {
                         //Pegando o preFab com a variavel item
                         meuInventory[i] = Resources.Load<GameObject>("Inventory");
-                        meuInventory[i] = Instantiate(meuInventory[i]);
+                        meuInventory[i] = Instantiate(meuInventory[i], meuInventoryPos.position, Quaternion.identity);
 
                         //transformando a variavel item em uma istance
                         meuInventory.Insert(i, meuInventory[i]);

@@ -11,6 +11,7 @@ TagManager:
   - Comida
   - Bancada
   - InventarioCliente
+  - Inventory
   layers:
   - Default
   - TransparentFX

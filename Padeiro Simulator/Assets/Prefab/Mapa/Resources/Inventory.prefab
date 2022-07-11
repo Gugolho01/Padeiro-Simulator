@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5071899921027266760}
   m_Layer: 9
   m_Name: Inventory
-  m_TagString: InventarioCliente
+  m_TagString: Inventory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,6 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d7a7af5b4a6d24e9508234f1892ade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 0}
-  tenhoItem: 1
-  qtdItens: 
+  item:
+  - {fileID: 0}
+  itemComida: {fileID: 0}
+  tenhoItem: 0
+  qtdItens: 0

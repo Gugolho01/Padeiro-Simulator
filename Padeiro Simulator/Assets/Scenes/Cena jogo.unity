@@ -162,11 +162,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!4 &270054681 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1775797360663517561, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
-  m_PrefabInstance: {fileID: 3980587823408450647}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1136784299
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15595,46 +15590,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1775797360663517561, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2380012019158349175, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
-      propertyPath: item
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3980587823722106713, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
-      propertyPath: m_Size.x
-      value: 1.0625
-      objectReference: {fileID: 0}
-    - target: {fileID: 3980587823722106713, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
-      propertyPath: m_Size.y
-      value: 1.0625
-      objectReference: {fileID: 0}
-    - target: {fileID: 3980587823722106713, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 12cde6d20884e3a49a46137448f19cf1, type: 3}
-    - target: {fileID: 3980587823722106713, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
-      propertyPath: m_SortingLayer
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3980587823722106713, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -60566777
-      objectReference: {fileID: 0}
-    - target: {fileID: 3980587823722106715, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
-      propertyPath: m_Name
-      value: inventarioPos
-      objectReference: {fileID: 0}
-    - target: {fileID: 3980587823722106715, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3980587823722106715, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
-      propertyPath: m_TagString
-      value: InventarioCliente
-      objectReference: {fileID: 0}
     - target: {fileID: 3980587823835991921, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -15680,48 +15635,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3980587823835991922, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
-      propertyPath: quem333
-      value: 5
+      propertyPath: quantosPedidos
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3980587823835991922, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
-      propertyPath: fizPedido
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3980587823835991922, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
-      propertyPath: meuInventory
+      propertyPath: meuInventoryTemp
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3980587823835991922, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
-      propertyPath: meuInventoryPos
-      value: 
-      objectReference: {fileID: 270054681}
-    - target: {fileID: 3980587823835991922, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
-      propertyPath: itemTenho.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3980587823835991922, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
-      propertyPath: itemTenho.Array.data[0]
-      value: 132
-      objectReference: {fileID: 0}
-    - target: {fileID: 3980587823835991922, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
-      propertyPath: itemTenho.Array.data[2]
-      value: 1311
-      objectReference: {fileID: 0}
-    - target: {fileID: 3980587823835991922, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
-      propertyPath: itemTenho.Array.data[3]
-      value: 33
-      objectReference: {fileID: 0}
-    - target: {fileID: 3980587823835991922, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
-      propertyPath: itemTenho.Array.data[4]
-      value: 628
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5071899921027266763, guid: 46dc9316623737044bd84849305076f5, type: 3}
     - target: {fileID: 3980587823835991926, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
       propertyPath: m_Name
       value: Cliente
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3980587823722106713, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
-    - {fileID: 2380012019158349175, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 418ada96e0b5ece4081e6b215a31efbc, type: 3}
 --- !u!1001 &4087668448709573879
 PrefabInstance:
@@ -15834,6 +15759,10 @@ PrefabInstance:
     - target: {fileID: 5071899921027266763, guid: 46dc9316623737044bd84849305076f5, type: 3}
       propertyPath: m_Name
       value: Inventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 5071899921027266763, guid: 46dc9316623737044bd84849305076f5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46dc9316623737044bd84849305076f5, type: 3}
