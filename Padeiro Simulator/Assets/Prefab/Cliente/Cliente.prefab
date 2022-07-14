@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1407606851}
   m_Layer: 9
   m_Name: ColisorPedido
-  m_TagString: Untagged
+  m_TagString: ColisorClientePedido
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -197,6 +197,7 @@ MonoBehaviour:
   meuInventoryPos: {fileID: 1775797360663517561}
   meuInventoryTemp: {fileID: 5071899921027266763, guid: 46dc9316623737044bd84849305076f5, type: 3}
   itemTenho: 
+  inventoryLocal: []
 --- !u!212 &3980587823835991923
 SpriteRenderer:
   m_ObjectHideFlags: 0

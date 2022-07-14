@@ -24,7 +24,7 @@ public class InventarioController : MonoBehaviour
         {
             item.transform.position = transform.position;
         }
-        CriandoItem();
+        else { CriandoItem(); }
     }
 
     public int CriandoItem()
