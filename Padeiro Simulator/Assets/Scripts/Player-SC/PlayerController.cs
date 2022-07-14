@@ -60,20 +60,14 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Comida"))
+        if (collision.gameObject.CompareTag("Comida") && !segurando && !collision.gameObject.GetComponent<ComidaController>().SouDeInventario())
         {
             naMaoObj = collision.gameObject.GetComponent<Transform>();
-        }
-
-        ///Vendo se na frente do Cliente
-        if (collision.gameObject.CompareTag("ColisorClientePedido"))
-        {
-            
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Comida"))
+        if (collision.gameObject.CompareTag("Comida") && !segurando)
         {
             naMaoObj = null;
         }

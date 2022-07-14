@@ -11,6 +11,8 @@ TagManager:
   - Comida
   - Bancada
   - Inventory
+  - ColisorClientePedido
+  - ColisorMaoPlayer
   layers:
   - Default
   - TransparentFX

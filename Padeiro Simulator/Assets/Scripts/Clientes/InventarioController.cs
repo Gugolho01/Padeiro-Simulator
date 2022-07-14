@@ -46,8 +46,8 @@ public class InventarioController : MonoBehaviour
             //Informando pra comida qual a que quero
             item.GetComponent<ComidaController>().QualComida(queItem);
 
-            //Mostrando os itens
-            item.SetActive(true);
+            //Não mostrar itens
+            MostrarPedido(false);
 
             tenhoItem = true;
         }

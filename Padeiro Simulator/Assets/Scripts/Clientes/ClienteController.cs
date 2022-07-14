@@ -24,8 +24,8 @@ public class ClienteController : MonoBehaviour
     [SerializeField] private GameObject meuInventoryTemp;
     [SerializeField] private List<int> itemTenho;
     [SerializeField] private List<GameObject> inventoryLocal;
-
     private int quantosPedidos = 3;
+    private bool mostrarPedido;
 
     void Start()
     {
@@ -36,16 +36,7 @@ public class ClienteController : MonoBehaviour
 
     void Update()
     {
-        //FandoPedido();
         Pedido();
-
-        if (fizPedido)
-        {
-            for (int i = 0; i <= inventoryLocal.Count; i++)
-            {
-                //inventoryLocal[i].transform.position = meuInventoryPos.position;
-            }
-        }
     }
 
     private void Pedido() 
@@ -101,6 +92,19 @@ public class ClienteController : MonoBehaviour
             }
         }
 
+
+        //Fazendo os pedidos aparecerem em cima do cliente quando o player estiver na frente dele
+        if (collision.gameObject.CompareTag("ColisorMaoPlayer"))
+        {
+            for (int i = 0; i <= inventoryLocal.Count; i++)
+            {
+                //Fazendo ele ficar em cima do cliente
+                inventoryLocal[i].transform.position = meuInventoryPos.position;
+
+                //Mostrando pedidos
+                inventoryLocal[i].gameObject.GetComponent<InventarioController>().MostrarPedido(true);
+            }
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -111,6 +115,16 @@ public class ClienteController : MonoBehaviour
             qualBancada = null;
             bancaGO = false;
             ondeVai = null;
+        }
+
+        //Fazendo os pedidos desaparecerem em cima do cliente quando o player sair da frente dele
+        if (collision.gameObject.CompareTag("ColisorMaoPlayer"))
+        {
+            for(int i = 0; i <= inventoryLocal.Count; i++)
+            {
+                //desaparecendo pedidos
+                inventoryLocal[i].gameObject.GetComponent<InventarioController>().MostrarPedido(false);
+            }
         }
     }
 }

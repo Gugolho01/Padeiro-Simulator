@@ -10,6 +10,8 @@ public class ComidaController : MonoBehaviour
 
     [SerializeField] private bool tenhoComida;
 
+    [SerializeField] private bool souInventario;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +30,14 @@ public class ComidaController : MonoBehaviour
 
     public void QualComida(int n1 = 0)
     {
+        souInventario = true;
         qualComida = n1;
         tenhoComida = true;
+    }
+
+    //Falando que sou de inventario
+    public bool SouDeInventario()
+    {
+        return souInventario;
     }
 }
