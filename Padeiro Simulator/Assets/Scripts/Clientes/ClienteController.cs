@@ -23,6 +23,8 @@ public class ClienteController : MonoBehaviour
     [SerializeField] private Transform meuInventoryPos;
     [SerializeField] private GameObject meuInventoryTemp;
     [SerializeField] private List<int> itemTenho;
+    [SerializeField] private List<GameObject> inventoryLocal;
+
     private int quantosPedidos = 3;
 
     void Start()
@@ -36,6 +38,14 @@ public class ClienteController : MonoBehaviour
     {
         //FandoPedido();
         Pedido();
+
+        if (fizPedido)
+        {
+            for (int i = 0; i <= inventoryLocal.Count; i++)
+            {
+                inventoryLocal[i].transform.position = new Vector3(meuInventoryPos.position.x + i, meuInventoryPos.position.y, meuInventoryPos.position.z);
+            }
+        }
     }
 
     private void Pedido() 
@@ -58,8 +68,10 @@ public class ClienteController : MonoBehaviour
                         //Criando o inventário
                         var inve = Instantiate(meuInventoryTemp, meuInventoryPos.position, Quaternion.identity);
 
-                        inve.GetComponent<InventarioController>().CriandoItem();
+                        //Adicionando o meu inventory a uma lista para poder controlalo
+                        inventoryLocal.Add(inve);
 
+                        //Vendo que item tenho do inventory
                         itemTenho.Add(inve.GetComponent<InventarioController>().QueItem());
                     }
                     fizPedido = true;
@@ -88,6 +100,7 @@ public class ClienteController : MonoBehaviour
                 bancaGO = false;
             }
         }
+
     }
     private void OnTriggerExit2D(Collider2D collision)
     {

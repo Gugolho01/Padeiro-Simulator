@@ -64,6 +64,12 @@ public class PlayerController : MonoBehaviour
         {
             naMaoObj = collision.gameObject.GetComponent<Transform>();
         }
+
+        ///Vendo se na frente do Cliente
+        if (collision.gameObject.CompareTag("ColisorClientePedido"))
+        {
+
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
