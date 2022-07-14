@@ -31,9 +31,4 @@ public class ComidaController : MonoBehaviour
         qualComida = n1;
         tenhoComida = true;
     }
-
-    public int queComida()
-    {
-        return qualComida;
-    }
 }

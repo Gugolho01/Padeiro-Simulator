@@ -27,7 +27,7 @@ public class InventarioController : MonoBehaviour
         CriandoItem();
     }
 
-    public void CriandoItem()
+    public int CriandoItem()
     {
         if(!tenhoItem)
         {
@@ -40,29 +40,24 @@ public class InventarioController : MonoBehaviour
             //falando qual o item aleatório
             var i = Random.Range(0, 6);
 
-            //INformando pra comida qual a que quero
-            item.GetComponent<ComidaController>().QualComida(i);
-
             //Pegando o numero da comida que to pegando
             queItem = i;
+
+            //Informando pra comida qual a que quero
+            item.GetComponent<ComidaController>().QualComida(queItem);
 
             //Mostrando os itens
             item.SetActive(true);
 
             tenhoItem = true;
         }
-    }
-
-    //Informando ao cliente qual item ele tem no inventario
-    public int QueItem()
-    {
         return queItem;
     }
+
 
     public void MostrarPedido(bool m)
     {
         item.SetActive(m);
-        
         gameObject.SetActive(m);
     }
 }

@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
         ///Vendo se na frente do Cliente
         if (collision.gameObject.CompareTag("ColisorClientePedido"))
         {
-
+            
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

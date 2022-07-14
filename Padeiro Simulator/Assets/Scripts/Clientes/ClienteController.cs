@@ -43,7 +43,7 @@ public class ClienteController : MonoBehaviour
         {
             for (int i = 0; i <= inventoryLocal.Count; i++)
             {
-                inventoryLocal[i].transform.position = new Vector3(meuInventoryPos.position.x + i, meuInventoryPos.position.y, meuInventoryPos.position.z);
+                //inventoryLocal[i].transform.position = meuInventoryPos.position;
             }
         }
     }
@@ -72,7 +72,7 @@ public class ClienteController : MonoBehaviour
                         inventoryLocal.Add(inve);
 
                         //Vendo que item tenho do inventory
-                        itemTenho.Add(inve.GetComponent<InventarioController>().QueItem());
+                        itemTenho.Add(inve.GetComponent<InventarioController>().CriandoItem());
                     }
                     fizPedido = true;
                 }
