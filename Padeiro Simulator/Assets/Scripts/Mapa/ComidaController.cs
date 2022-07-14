@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ComidaController : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer spriteR;
-    [SerializeField] private Sprite[] comidas;
-    [SerializeField] private int qualComida;
+    [SerializeField] private SpriteRenderer spriteR;    //Sprite que vai mostar
+    [SerializeField] private Sprite[] comidas;          //Conjunto de imagens
+    [SerializeField] private int qualComida;            //Numero da imagem
 
     [SerializeField] private bool tenhoComida;
 

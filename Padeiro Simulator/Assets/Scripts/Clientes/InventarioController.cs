@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class InventarioController : MonoBehaviour
 {
-    [SerializeField] private GameObject[] item;
+    [SerializeField] private GameObject item;
 
     [SerializeField] private bool tenhoItem;
 
     //Pegando o transforme do item que eu tenho
     private int queItem;
-
-    //Quantos Itens criar
-    [SerializeField] private int qtdItens = 4;
-    private int sizeComida = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -24,44 +20,36 @@ public class InventarioController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         if (tenhoItem)
         {
-            for (var f = 0; f < qtdItens; f++)
-                item[f].transform.position = transform.position;
+            item.transform.position = transform.position;
         }
+        CriandoItem();
     }
 
     public void CriandoItem()
     {
-        if (!tenhoItem)
+        if(!tenhoItem)
         {
-            int f = 0;
-            while (!tenhoItem)
-            {
-                //Pegando o preFab com a variavel item
-                item[f] = Resources.Load<GameObject>("Comida");
+            //Pegando pelo resources o preFab da coimida
+            item = Resources.Load<GameObject>("Comida");
 
-                //transformando a variavel item em uma istance
-                item[f] = Instantiate(item[f], new Vector3(transform.position.x + sizeComida, transform.position.y, transform.position.z), Quaternion.identity);
+            //transformando a variavel item em uma istance
+            item = Instantiate(item, transform.position, Quaternion.identity);
 
-                sizeComida ++;
+            //falando qual o item aleatório
+            var i = Random.Range(0, 6);
 
-                //falando qual o item aleatório
-                var i = Random.Range(0, 6);
-                item[f].GetComponent<ComidaController>().QualComida(i);
+            //INformando pra comida qual a que quero
+            item.GetComponent<ComidaController>().QualComida(i);
 
-                //Pegando o numero da comida que to pegando
-                queItem = i;
+            //Pegando o numero da comida que to pegando
+            queItem = i;
 
-                //Mostrando os itens
-                item[f].SetActive(true);
-                Debug.Log(f);
+            //Mostrando os itens
+            item.SetActive(true);
 
-                f++;
-                if(f >= qtdItens) { tenhoItem = true; }
-            }
-            //tenhoItem = true;
+            tenhoItem = true;
         }
     }
 
@@ -73,7 +61,7 @@ public class InventarioController : MonoBehaviour
 
     public void MostrarPedido(bool m)
     {
-        for(var f = 0; f < qtdItens; f++) { item[f].SetActive(m); }
+        item.SetActive(m);
         
         gameObject.SetActive(m);
     }
