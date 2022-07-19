@@ -29,13 +29,20 @@ public class PlayerController : MonoBehaviour
         Movendo();
         CarregaItem();
 
+        if (Input.GetKeyUp(KeyCode.C))
+        {
+            Instantiate(productos[0], transform.position, Quaternion.identity);
+        }
+
         //Guardando item na sacola
         if (Input.GetKeyUp(KeyCode.R) && segurando && naMaoObj != null)
         {
             productos.Add(naMaoObj.gameObject);
-            //Destroy(naMaoObj.gameObject);
-            //GetComponent<SacolaController>().MudaImageSacola();
+            //naMaoObj.gameObject.GetComponent<ComidaController>().TransInventory(true);
 
+            //mudando a sprite da sacola
+            //GetComponent<SacolaController>().MudaImageSacola( GetComponent<ComidaController>().queComidaTenho() );
+            Destroy(naMaoObj.gameObject);
             //resetando coisas na mão do player
             naMaoObj = null;
             segurando = false;

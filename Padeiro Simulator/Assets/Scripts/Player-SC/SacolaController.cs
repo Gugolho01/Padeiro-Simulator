@@ -32,11 +32,10 @@ public class SacolaController : MonoBehaviour
         }
     }
 
-    public void MudaImageSacola()
+    public void MudaImageSacola(int i = 0)
     {
-        Debug.Log("rodei");
-        myImage = GetComponent<Image>();
-        myImage.sprite = sacolaComidas[qualComida];
-
+        //Mudando a sprite da sacola
+        qualComida = i;
+        tenhoComida = true;
     }
 }

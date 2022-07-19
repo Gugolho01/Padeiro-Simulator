@@ -40,4 +40,15 @@ public class ComidaController : MonoBehaviour
     {
         return souInventario;
     }
+
+    //Transformando ela de inventário
+    public void TransInventory(bool s = false)
+    {
+        souInventario = s;
+    }
+
+    public int queComidaTenho()
+    {
+        return qualComida;
+    }
 }
