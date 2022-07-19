@@ -1,15 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    
     private Animator meuAnim;
 
     [SerializeField] private float speed;
+
+    //Verificando se está segurando um item
     [SerializeField] private Transform naMaoObj;
     [SerializeField] private bool segurando;
+
+    //Variaveis do inventory
+    [SerializeField] private List<GameObject> productos;
 
     // Start is called before the first frame update
     void Start()
@@ -20,8 +25,21 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         Movendo();
         CarregaItem();
+
+        //Guardando item na sacola
+        if (Input.GetKeyUp(KeyCode.R) && segurando && naMaoObj != null)
+        {
+            productos.Add(naMaoObj.gameObject);
+            //Destroy(naMaoObj.gameObject);
+            //GetComponent<SacolaController>().MudaImageSacola();
+
+            //resetando coisas na mão do player
+            naMaoObj = null;
+            segurando = false;
+        }
     }
 
     private void CarregaItem()
