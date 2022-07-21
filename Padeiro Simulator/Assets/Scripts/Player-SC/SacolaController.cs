@@ -21,6 +21,7 @@ public class SacolaController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (tenhoComida) 
         {
             myImage = GetComponent<Image>();
@@ -30,6 +31,7 @@ public class SacolaController : MonoBehaviour
             myImage = GetComponent<Image>();
             myImage.sprite = myImagePrincipal;
         }
+        */
     }
 
     public void MudaImageSacola(int i = 0)

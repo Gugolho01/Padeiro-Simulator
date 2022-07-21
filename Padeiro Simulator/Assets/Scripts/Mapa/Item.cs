@@ -6,8 +6,8 @@ using UnityEngine;
 public class Item 
 {
     public string id;
-    public string nameItem;
     public string description;
     public int quantidade;
+    public Transform prefab;
     public Sprite sprItem;
 }

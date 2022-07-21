@@ -152,6 +152,7 @@ MonoBehaviour:
   speed: 5
   naMaoObj: {fileID: 0}
   segurando: 0
+  productos: []
 --- !u!70 &7776229318342580772
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
