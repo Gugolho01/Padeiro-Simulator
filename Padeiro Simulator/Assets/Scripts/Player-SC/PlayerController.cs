@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
         {
             Instantiate(productos[0], transform.position, Quaternion.identity);
         }
-        if (Input.GetKeyUp(KeyCode.L))
+
         //Guardando item na sacola
         if (Input.GetKeyUp(KeyCode.R) && segurando && naMaoObj != null)
         {
